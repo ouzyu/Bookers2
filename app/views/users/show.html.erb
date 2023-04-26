@@ -8,7 +8,7 @@
   <div>
     <p>Title: <%= book.title %></p>
     <p>Body: <%= book.body %></p>
-    <p>User Image: <%= image_tag 'sample-author1.jpg' %></p>
+    <p>User Image: <%= image_tag @user.get_profile_image(100,100)%></p>
     <p>User Name: <%= book.user.name %></p>
     <% if book.user == current_user %>
       <%= link_to "Delete", book_path(book), method: :delete %>
