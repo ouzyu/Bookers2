@@ -14,9 +14,6 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to '投稿フォーム', new_book_path %>
-        </li>
-        <li>
           <%= link_to 'Home', user_path(current_user.id) %>
         </li>
         <li>
@@ -43,6 +40,10 @@
         </li>
       <% end %>
     </header>
+
+    <div>
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
   </body>
 </html>
