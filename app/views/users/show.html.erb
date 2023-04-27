@@ -1,9 +1,5 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>Introduction: <%= @user.introduction %></p>
-  <p><%= link_to "プロフィール編集", edit_user_path %></p>
-</div>
+<%= render partial: 'books/books_new', locals: { user_info: @user_info, new_book: @new_book } %>
+
 
 <% @book.each do |book| %>
   <div>
