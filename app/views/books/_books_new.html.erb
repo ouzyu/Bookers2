@@ -4,7 +4,7 @@
 <%= user_info.name %>
 <h4>introduction</h4>
 <%= user_info.introduction %>
-<%= link_to "Edit Profile", user_path(user_info.id) %>
+<%= link_to "Edit Profile", edit_user_path(user_info.id) %>
 
 <h2>New book</h2>
 <%= form_with model: new_book do |f| %>

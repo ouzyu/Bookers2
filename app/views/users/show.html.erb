@@ -1,5 +1,8 @@
-<%= render partial: 'books/books_new', locals: { user_info: @user_info, new_book: @new_book } %>
+<div>
+  <%= flash[:notice] %>
+</div>
 
+<%= render partial: 'books/books_new', locals: { user_info: @user_info, new_book: @new_book } %>
 
 <% @book.each do |book| %>
   <div>
