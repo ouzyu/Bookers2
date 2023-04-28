@@ -2,15 +2,21 @@
 
 <h2>Users</h2>
 
-<% @userList.each do |user| %>
-<div>
-
-  <p>投稿ユーザー画像: <%= image_tag user.get_profile_image(100,100) %></p>
-  <p><%= user.name %></p>
-  <p>
-    <%= link_to user_path(user.id) do %>
-      Show
-    <% end %>
-  </p>
-</div>
-<% end %>
+<table>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+  <% @userList.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100,100) %></td>
+      <td><%= user.name %></td>
+      <td>
+        <%= link_to user_path(user.id) do %>
+          Show
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

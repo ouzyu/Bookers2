@@ -1,12 +1,17 @@
 <%= render partial: 'books_new', locals: { book: @book_new } %>
 
-<div>
-  <p>Title: <%= @book.title %></p>
-  <p>Body: <%= @book.body %></p>
-  <p>User Image: <%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p>User Name: <%= @book.user.name %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book) %>
-    <%= link_to "Delete", book_path(@book), method: :delete %>
-  <% end %>
-</div>
+<table>
+  <tr>
+    <td>
+      <%= link_to user_path(@book.user) do %>
+        <%= image_tag @book.user.get_profile_image(100,100) %>
+      <% end %>
+    </td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
+    <% if @book.user == current_user %>
+      <td><%= link_to "Edit", edit_book_path(@book) %></td>
+      <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+    <% end %>
+  </tr>
+</table>

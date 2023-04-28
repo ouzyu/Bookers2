@@ -10,17 +10,25 @@
 <%= render partial: 'books_new', locals: { book: @book_new } %>
 
 <h2>Books</h2>
-
-<% @bookList.each do |book| %>
-<div>
-
-  <p>投稿ユーザー画像: <%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>
-    <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-    <% end %>
-  </p>
-  <p>Opinion: <%= book.body %></p>
-  <p>ユーザーネーム: <%= book.user.name %></p>
-</div>
-<% end %>
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+  <% @bookList.each do |book| %>
+    <tr>
+      <td>
+        <%= link_to user_path(book.user_id) do %>
+          <%= image_tag book.user.get_profile_image(100,100) %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+        <% end %>
+      </td>
+      <td><%= book.body %></td>
+    </tr>
+  <% end %>
+</table>

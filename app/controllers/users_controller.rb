@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def index
     @userList = User.all
     @book_new = Book.new
+    @user = current_user
   end
 
   def show

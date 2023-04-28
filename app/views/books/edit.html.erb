@@ -16,3 +16,6 @@
   <%= f.text_field :body, id:"inputBody", placeholder:"Body" %>
   <%= f.submit "Save Edit" %>
 <% end %>
+
+<%= link_to "Show", book_path(@book) %>
+<%= link_to "Back", books_path %>
