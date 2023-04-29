@@ -1,22 +1,28 @@
-<%= render partial: 'books/books_new', locals: { book: @book_new } %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render partial: 'books/books_new', locals: { book: @book_new } %>
 
-<h2>Users</h2>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
 
-<table>
-  <tr>
-    <th>image</th>
-    <th>name</th>
-    <th></th>
-  </tr>
-  <% @userList.each do |user| %>
-    <tr>
-      <td><%= image_tag user.get_profile_image(100,100) %></td>
-      <td><%= user.name %></td>
-      <td>
-        <%= link_to user_path(user.id) do %>
-          Show
+      <table class="table">
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+        <% @userList.each do |user| %>
+          <tr>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to user_path(user.id) do %>
+                Show
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>
